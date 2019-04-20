@@ -41,5 +41,10 @@ parsed_text = json.loads(r.text)
 
 results_id = parsed_text["results"][0]["id"].capitalize()
 results_definition = parsed_text["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0].capitalize()
+results_example = parsed_text["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["examples"][0]["text"]
 
-print(f"The word of the day is: \n\n{results_id}\n{results_definition}\n\n\n\n")
+print("#############################\n")
+print(f"The word of the day is:\n\n{results_id}\n")
+print(f"Definition: {results_definition}\n")
+print(f"Example: {results_example}\n")
+print("#############################")

@@ -1,3 +1,5 @@
+# Using a user's input to get a word back from the dictionary API
+
 # Import libraries
 import requests
 import random
@@ -5,11 +7,6 @@ import json
 
 # Initiate the input which will be used as the Word of the Day
 user_input = input("Enter a word for the dictionary to define: ")
-
-# Open and read the list of English words
-words_file = open("words.txt", "r")
-all_words = words_file.read()
-words_file.close()
 
 # Variables
 app_id = "2f5596aa"
@@ -34,9 +31,4 @@ else:
 
 # Handle/parse the JSON that returns
 parsed_text = json.loads(r.text)
-# print(json.dumps(parsed_text, indent=2, sort_keys=True))
-
-results_id = parsed_text["results"][0]["id"].capitalize()
-results_definition = parsed_text["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0].capitalize()
-
-print(f"The word of the day is: \n\n{results_id}\n{results_definition}\n\n")
+print(json.dumps(parsed_text, indent=2, sort_keys=True))
