@@ -31,4 +31,13 @@ else:
 
 # Handle/parse the JSON that returns
 parsed_text = json.loads(r.text)
-print(json.dumps(parsed_text, indent=2, sort_keys=True))
+
+results_id = parsed_text["results"][0]["id"].capitalize()
+results_definition = parsed_text["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0].capitalize()
+results_example = parsed_text["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["examples"][0]["text"]
+
+print("#############################\n")
+print(f"You requested information about the word: {results_id}\n")
+print(f"Definition: {results_definition}\n")
+print(f"Example: {results_example}\n")
+print("#############################")
